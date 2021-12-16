@@ -5,6 +5,7 @@ import Home from './src/screen/Home';
 import Profile from './src/screen/Profile';
 import SplashScreen from './src/screen/SplashScreen';
 import SignUp from './src/screen/SignUp';
+import Login from './src/screen/Login';
 
 const Stack = createNativeStackNavigator();
 
@@ -14,10 +15,11 @@ function App() {
       <Stack.Navigator
         initialRouteName="SplashScreen"
         screenOptions={{headerShown: false}}>
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Profile" component={Profile} />
         <Stack.Screen name="SplashScreen" component={SplashScreen} />
         <Stack.Screen name="SignUp" component={SignUp} />
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Profile" component={Profile} />
       </Stack.Navigator>
     </NavigationContainer>
   );

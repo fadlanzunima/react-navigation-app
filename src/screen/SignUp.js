@@ -9,9 +9,9 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-function SignUp() {
+function SignUp({navigation: {navigate}}) {
   return (
-    <ScrollView style={styles.container}>
+    <View style={styles.container}>
       <View style={styles.wrapperImage}>
         <Image
           style={styles.logo}
@@ -57,15 +57,18 @@ function SignUp() {
         <TouchableOpacity style={styles.signup}>
           <Text style={styles.textSignUp}>SIGN UP</Text>
         </TouchableOpacity>
-        <Text
+        <TouchableOpacity
+          onPress={() => navigate('Login')}
           style={{
             display: 'flex',
+            flexDirection: 'row',
             justifyContent: 'center',
-            alignItems: 'baseline',
+            alignItems: 'center',
             fontFamily: 'Helvetica-Neue',
             letterSpacing: 0.25,
           }}>
-          ALREADY HAVE AN ACCOUNT?{' '}
+          <Text>ALREADY HAVE AN ACCOUNT? </Text>
+
           <Text
             style={{
               color: '#8E97FD',
@@ -73,9 +76,9 @@ function SignUp() {
             }}>
             LOG IN
           </Text>
-        </Text>
+        </TouchableOpacity>
       </View>
-    </ScrollView>
+    </View>
   );
 }
 
@@ -92,19 +95,20 @@ const styles = StyleSheet.create({
   },
   logo: {
     position: 'absolute',
-    top: Dimensions.get('window').width * 0.1,
+    top: Dimensions.get('window').width * 0.08,
     zIndex: 1,
     width: 168,
     height: 30,
   },
   icon: {
     position: 'absolute',
-    top: Dimensions.get('window').width * 0.4,
+    top: Dimensions.get('window').width * 0.2,
     zIndex: 1,
     width: 332,
     height: 242,
   },
   bgSplash: {
+    marginTop: -80,
     width: Dimensions.get('window').width,
     height: Dimensions.get('window').width * 1.2,
   },
@@ -113,11 +117,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   wrapperBtn: {
-    marginTop: 40,
-    marginBottom: 25,
+    display: 'flex',
+    flexDirection: 'column',
     justifyContent: 'center',
     textAlign: 'center',
-    alignItems: 'center',
+    marginTop: -50,
+    marginBottom: 20,
   },
   signup: {
     justifyContent: 'center',
