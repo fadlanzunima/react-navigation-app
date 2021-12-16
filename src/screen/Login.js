@@ -6,6 +6,7 @@ import {
   StyleSheet,
   Dimensions,
   TouchableOpacity,
+  TextInput,
 } from 'react-native';
 
 function Login({navigation: {navigate}}) {
@@ -43,13 +44,26 @@ function Login({navigation: {navigate}}) {
       </View>
       <View
         style={{
-          flex: 1,
-          marginTop: Dimensions.get('window').width * 0.1,
+          position: 'absolute',
+          width: Dimensions.get('window').width,
+          top: Dimensions.get('window').width * 0.85,
           textAlign: 'center',
           display: 'flex',
           alignItems: 'center',
+          justifyContent: 'center',
         }}>
-        <Text>OR LOG IN WITH EMAIL</Text>
+        <Text style={{fontSize: 14, color: '#A1A4B2', fontWeight: 'bold'}}>
+          OR LOG IN WITH EMAIL
+        </Text>
+
+        <View style={{marginTop: 20}}>
+          <TextInput
+            style={styles.inputText}
+            placeholder="Email address"></TextInput>
+          <TextInput
+            style={styles.inputText}
+            placeholder="Password"></TextInput>
+        </View>
       </View>
     </View>
   );
@@ -135,6 +149,14 @@ const styles = StyleSheet.create({
   textGoogle: {
     fontSize: 14,
     color: '#3F414E',
+  },
+  inputText: {
+    width: Dimensions.get('window').width - 40,
+    height: 63,
+    backgroundColor: '#F2F3F7',
+    borderRadius: 15,
+    padding: 20,
+    marginBottom: 20,
   },
 });
 
