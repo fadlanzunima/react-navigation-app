@@ -1,16 +1,16 @@
-import React, {useEffect} from 'react';
-import {View, Text, StyleSheet, Image, Dimensions} from 'react-native';
-import {useNavigation, StackActions} from '@react-navigation/native';
+import React from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  Dimensions,
+  TouchableOpacity,
+} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 
-function SplashScree() {
+function SignInNSignUp() {
   const navigation = useNavigation();
-
-  useEffect(() => {
-    setTimeout(() => {
-      navigation.dispatch(StackActions.replace('SignInNSignUp'));
-    }, 2000);
-  });
-
   return (
     <View style={styles.container}>
       <View style={styles.wrapperImage}>
@@ -54,12 +54,40 @@ function SplashScree() {
           Thousand of people are usign silent moon{'\n'} for smalls meditation
         </Text>
       </View>
+      <View style={styles.wrapperBtn}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('SignUp')}
+          style={styles.signup}>
+          <Text style={styles.textSignUp}>SIGN UP </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('SignIn')}
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'center',
+            alignItems: 'center',
+            fontFamily: 'Helvetica-Neue',
+            letterSpacing: 0.25,
+          }}>
+          <Text>ALREADY HAVE AN ACCOUNT? </Text>
+
+          <Text
+            style={{
+              color: '#8E97FD',
+              fontFamily: 'Helvetica-Neue',
+            }}>
+            LOG IN
+          </Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    position: 'relative',
     flex: 1,
     backgroundColor: '#ffffff',
   },
@@ -71,27 +99,50 @@ const styles = StyleSheet.create({
   },
   logo: {
     position: 'absolute',
-    top: Dimensions.get('window').width * 0.1,
+    top: Dimensions.get('window').width * 0.08,
     zIndex: 1,
     width: 168,
     height: 30,
   },
   icon: {
     position: 'absolute',
-    top: Dimensions.get('window').width * 0.4,
+    top: Dimensions.get('window').width * 0.2,
     zIndex: 1,
     width: 332,
     height: 242,
   },
   bgSplash: {
+    marginTop: -80,
     width: Dimensions.get('window').width,
     height: Dimensions.get('window').width * 1.2,
   },
   textSplash: {
     flex: 0.3,
     alignItems: 'center',
-    marginTop: Dimensions.get('window').width * 0.3,
+  },
+  wrapperBtn: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    textAlign: 'center',
+    marginTop: -50,
+    marginBottom: 20,
+  },
+  signup: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    textAlign: 'center',
+    marginHorizontal: 20,
+    backgroundColor: '#8E97FD',
+    borderRadius: 38,
+    width: Dimensions.get('window').width - 40,
+    height: 63,
+    marginBottom: 10,
+  },
+  textSignUp: {
+    fontSize: 14,
+    color: '#F6F1FB',
   },
 });
 
-export default SplashScree;
+export default SignInNSignUp;

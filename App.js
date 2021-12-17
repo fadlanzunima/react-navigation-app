@@ -4,8 +4,9 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Home from './src/screen/Home';
 import Profile from './src/screen/Profile';
 import SplashScreen from './src/screen/SplashScreen';
+import SignInNSignUp from './src/screen/SignInNSignUp';
+import SignIn from './src/screen/SignIn';
 import SignUp from './src/screen/SignUp';
-import Login from './src/screen/Login';
 
 const Stack = createNativeStackNavigator();
 
@@ -16,8 +17,9 @@ function App() {
         initialRouteName="SplashScreen"
         screenOptions={{headerShown: false}}>
         <Stack.Screen name="SplashScreen" component={SplashScreen} />
+        <Stack.Screen name="SignInNSignUp" component={SignInNSignUp} />
         <Stack.Screen name="SignUp" component={SignUp} />
-        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="SignIn" component={SignIn} />
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Profile" component={Profile} />
       </Stack.Navigator>
