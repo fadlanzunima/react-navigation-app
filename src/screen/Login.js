@@ -27,10 +27,24 @@ function Login({navigation: {navigate}}) {
             <Text style={styles.welcomeText}>Welcome Back!</Text>
 
             <TouchableOpacity style={styles.fbBtn}>
+              <View style={styles.iconWrapperFb}>
+                <Image
+                  style={{width: 12, height: 24}}
+                  source={require('../assets/img/fb.png')}
+                  resizeMode="cover"
+                />
+              </View>
               <Text style={styles.textFb}>CONTINUE WITH FACEBOOK</Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.googleBtn}>
+              <View style={styles.iconWrapperGoogle}>
+                <Image
+                  style={{width: 24, height: 25}}
+                  source={require('../assets/img/google.png')}
+                  resizeMode="cover"
+                />
+              </View>
               <Text style={styles.textGoogle}>CONTINUE WITH GOOGLE</Text>
             </TouchableOpacity>
           </View>
@@ -63,6 +77,45 @@ function Login({navigation: {navigate}}) {
           <TextInput
             style={styles.inputText}
             placeholder="Password"></TextInput>
+
+          <TouchableOpacity style={styles.login}>
+            <Text style={styles.textLogIn}>LOG IN</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'center',
+              marginTop: 5,
+            }}>
+            <Text style={{fontSize: 14, color: '#3F414E'}}>
+              Forgot Password?
+            </Text>
+          </TouchableOpacity>
+        </View>
+
+        <View style={styles.wrapperBtn}>
+          <TouchableOpacity
+            // onPress={() => navigate('SignUp')}
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'center',
+              alignItems: 'center',
+              fontFamily: 'Helvetica-Neue',
+              letterSpacing: 0.25,
+            }}>
+            <Text>DOESN'T HAVE AN ACCOUNT? </Text>
+
+            <Text
+              style={{
+                color: '#8E97FD',
+                fontFamily: 'Helvetica-Neue',
+              }}>
+              SIGN UP
+            </Text>
+          </TouchableOpacity>
         </View>
       </View>
     </View>
@@ -117,10 +170,11 @@ const styles = StyleSheet.create({
     height: Dimensions.get('window').width * 0.6,
   },
   fbBtn: {
+    position: 'relative',
     display: 'flex',
+    flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    textAlign: 'center',
     marginHorizontal: 20,
     backgroundColor: '#7583CA',
     borderRadius: 38,
@@ -133,10 +187,11 @@ const styles = StyleSheet.create({
     color: '#F6F1FB',
   },
   googleBtn: {
+    position: 'relative',
     display: 'flex',
+    flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    textAlign: 'center',
     marginHorizontal: 20,
     backgroundColor: '#ffffff',
     borderColor: '#EBEAEC',
@@ -156,6 +211,50 @@ const styles = StyleSheet.create({
     backgroundColor: '#F2F3F7',
     borderRadius: 15,
     padding: 20,
+    marginBottom: 20,
+  },
+  iconWrapperFb: {
+    position: 'absolute',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    left: 30,
+    zIndex: 1,
+  },
+  iconWrapperGoogle: {
+    position: 'absolute',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    left: 25,
+    zIndex: 1,
+  },
+
+  login: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    textAlign: 'center',
+    backgroundColor: '#8E97FD',
+    borderRadius: 38,
+    width: Dimensions.get('window').width - 40,
+    height: 63,
+    marginBottom: 10,
+  },
+  textLogIn: {
+    fontSize: 14,
+    color: '#F6F1FB',
+  },
+
+  wrapperBtn: {
+    position: 'absolute',
+    zIndex: 1,
+    width: Dimensions.get('window').width - 40,
+    top: Dimensions.get('window').width * 0.9,
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    textAlign: 'center',
     marginBottom: 20,
   },
 });
