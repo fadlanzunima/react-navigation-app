@@ -100,6 +100,14 @@ const styles = StyleSheet.create({
     height: 63,
     marginBottom: 10,
   },
+  inputText: {
+    width: Dimensions.get('window').width - 40,
+    height: 63,
+    backgroundColor: '#F2F3F7',
+    borderRadius: 15,
+    padding: 20,
+    marginBottom: 20,
+  },
   textLogIn: {
     fontSize: 14,
     color: '#F6F1FB',

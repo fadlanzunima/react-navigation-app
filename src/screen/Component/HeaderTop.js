@@ -138,14 +138,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#3F414E',
   },
-  inputText: {
-    width: Dimensions.get('window').width - 40,
-    height: 63,
-    backgroundColor: '#F2F3F7',
-    borderRadius: 15,
-    padding: 20,
-    marginBottom: 20,
-  },
   iconWrapperFb: {
     position: 'absolute',
     display: 'flex',
