@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -7,11 +7,43 @@ import {
   TouchableOpacity,
   TextInput,
 } from 'react-native';
+import {Icon} from 'react-native-elements';
 import {useNavigation} from '@react-navigation/native';
 import HeaderTop from './Component/HeaderTop';
 import {SigninUser} from '../config/auth';
 
 function SignIn() {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [show, setShow] = useState(true);
+
+  const checkText = (value, name) => {
+    switch (name) {
+      case 'inputUsername':
+        setUsername(value);
+        break;
+      case 'inputPassword':
+        setPassword(value);
+        break;
+      default:
+        break;
+    }
+  };
+
+  const FunctionSignIn = () => {
+    const body = {
+      username,
+      password,
+    };
+    SigninUser(body).then(data => {
+      console.log(data);
+    });
+  };
+
+  const ChangeShowPassword = () => {
+    setShow(!show);
+  };
+
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
@@ -37,12 +69,36 @@ function SignIn() {
         <View style={{marginTop: 20}}>
           <TextInput
             style={styles.inputText}
-            placeholder="Email address"></TextInput>
-          <TextInput
-            style={styles.inputText}
-            placeholder="Password"></TextInput>
+            placeholder="Username"
+            value={username}
+            onChangeText={value => checkText(value, 'inputUsername')}
+          />
+          <View style={styles.inputText}>
+            <TextInput
+              placeholder="Password"
+              value={password}
+              onChangeText={value => checkText(value, 'inputPassword')}
+              secureTextEntry={show}
+            />
+            <TouchableOpacity
+              style={{paddingVertical: 15}}
+              onPress={ChangeShowPassword}>
+              {show ? (
+                <Icon name="eye" type="font-awesome" color="#000" size={15} />
+              ) : (
+                <Icon
+                  name="eye-slash"
+                  type="font-awesome"
+                  color="#000"
+                  size={15}
+                />
+              )}
+            </TouchableOpacity>
+          </View>
 
-          <TouchableOpacity style={styles.login}>
+          <TouchableOpacity
+            style={styles.login}
+            onPress={() => FunctionSignIn()}>
             <Text style={styles.textLogIn}>LOG IN</Text>
           </TouchableOpacity>
 
@@ -61,7 +117,7 @@ function SignIn() {
 
         <View style={styles.wrapperBtn}>
           <TouchableOpacity
-            // onPress={() => navigate('SignUp')}
+            onPress={() => navigation.navigate('SignUp')}
             style={{
               display: 'flex',
               flexDirection: 'row',
@@ -103,11 +159,17 @@ const styles = StyleSheet.create({
   },
   inputText: {
     width: Dimensions.get('window').width - 40,
-    height: 63,
+    height: 50,
     backgroundColor: '#F2F3F7',
     borderRadius: 15,
-    padding: 20,
+    paddingLeft: 20,
+    paddingRight: 20,
     marginBottom: 20,
+    marginBottom: 20,
+    display: 'flex',
+    flexDirection: 'row',
+    alignContent: 'center',
+    justifyContent: 'space-between',
   },
   textLogIn: {
     fontSize: 14,

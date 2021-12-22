@@ -144,6 +144,10 @@ const styles = StyleSheet.create({
     alignContent: 'center',
     justifyContent: 'space-between',
   },
+  textLogIn: {
+    fontSize: 14,
+    color: '#F6F1FB',
+  },
   login: {
     justifyContent: 'center',
     alignItems: 'center',
