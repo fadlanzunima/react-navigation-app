@@ -8,11 +8,15 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import {Icon} from 'react-native-elements';
-import {useNavigation} from '@react-navigation/native';
+import {useNavigation, StackActions} from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 import HeaderTop from './Component/HeaderTop';
-import {SignupUser} from '../config/auth';
+import {SignupUser, SigninUser} from '../config/auth';
 
 function SignUp() {
+  const navigation = useNavigation();
+
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [usernameValidasi, setusernameValidasi] = useState(true);
@@ -37,13 +41,29 @@ function SignUp() {
     }
   };
 
+  const storeData = async value => {
+    try {
+      await AsyncStorage.setItem('@storage_user', value);
+      navigation.dispatch(StackActions.replace('Welcome'));
+    } catch (e) {
+      // saving error
+      console.log('error');
+    }
+  };
+
   const FunctionSignUp = () => {
     const body = {
       username,
       password,
     };
     SignupUser(body).then(data => {
+      // console.log(body)
       console.log(data);
+      SigninUser(body).then(res => {
+        console.log(res, 'test login');
+        const value = JSON.stringify(data);
+        storeData(value);
+      });
     });
   };
 
@@ -51,7 +71,6 @@ function SignUp() {
     setShow(!show);
   };
 
-  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <HeaderTop
