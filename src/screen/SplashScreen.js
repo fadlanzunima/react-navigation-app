@@ -1,13 +1,30 @@
 import React, {useEffect} from 'react';
 import {View, Text, StyleSheet, Image, Dimensions} from 'react-native';
 import {useNavigation, StackActions} from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 function SplashScree() {
   const navigation = useNavigation();
 
+  const getData = async () => {
+    try {
+      const value = await AsyncStorage.getItem('@storage_user');
+      console.log(value);
+      if (value !== null) {
+        console.log('ada');
+        navigation.dispatch(StackActions.replace('Welcome'));
+      } else {
+        navigation.dispatch(StackActions.replace('SignInNSignUp'));
+      }
+    } catch (e) {
+      // error reading value
+      console.log(e);
+    }
+  };
+
   useEffect(() => {
     setTimeout(() => {
-      navigation.dispatch(StackActions.replace('SignInNSignUp'));
+      getData();
     }, 2000);
   });
 

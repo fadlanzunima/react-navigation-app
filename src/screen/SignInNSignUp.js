@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
   View,
   Text,
@@ -11,6 +11,7 @@ import {useNavigation} from '@react-navigation/native';
 
 function SignInNSignUp() {
   const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
       <View style={styles.wrapperImage}>

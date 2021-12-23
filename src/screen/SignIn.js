@@ -8,9 +8,10 @@ import {
   TextInput,
 } from 'react-native';
 import {Icon} from 'react-native-elements';
-import {useNavigation} from '@react-navigation/native';
+import {useNavigation, StackActions} from '@react-navigation/native';
 import HeaderTop from './Component/HeaderTop';
 import {SigninUser} from '../config/auth';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 function SignIn() {
   const [username, setUsername] = useState('');
@@ -30,13 +31,25 @@ function SignIn() {
     }
   };
 
-  const FunctionSignIn = () => {
+  const storeData = async value => {
+    try {
+      await AsyncStorage.setItem('@storage_user', value);
+      navigation.dispatch(StackActions.replace('Welcome'));
+    } catch (e) {
+      // saving error
+      console.log('error');
+    }
+  };
+
+  const FunctionSignIn = async () => {
     const body = {
       username,
       password,
     };
-    SigninUser(body).then(data => {
+    await SigninUser(body).then(data => {
       console.log(data);
+      const value = JSON.stringify(data);
+      storeData(value);
     });
   };
 

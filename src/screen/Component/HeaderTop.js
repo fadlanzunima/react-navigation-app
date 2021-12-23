@@ -6,6 +6,7 @@ import {
   Image,
   Text,
   Dimensions,
+  ToastAndroid,
 } from 'react-native';
 
 function HeaderTop(props) {
@@ -25,7 +26,15 @@ function HeaderTop(props) {
         <View style={styles.wrapperTitle}>
           <Text style={styles.welcomeText}>{props.title}</Text>
 
-          <TouchableOpacity style={styles.fbBtn}>
+          <TouchableOpacity
+            style={styles.fbBtn}
+            onPress={() =>
+              ToastAndroid.show(
+                `Tombol masih dalam tahap pengembangan`,
+                ToastAndroid.SHORT,
+                ToastAndroid.CENTER,
+              )
+            }>
             <View style={styles.iconWrapperFb}>
               <Image
                 style={{width: 12, height: 24}}
@@ -36,7 +45,15 @@ function HeaderTop(props) {
             <Text style={styles.textFb}>CONTINUE WITH FACEBOOK</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.googleBtn}>
+          <TouchableOpacity
+            style={styles.googleBtn}
+            onPress={() =>
+              ToastAndroid.show(
+                `Tombol masih dalam tahap pengembangan`,
+                ToastAndroid.SHORT,
+                ToastAndroid.CENTER,
+              )
+            }>
             <View style={styles.iconWrapperGoogle}>
               <Image
                 style={{width: 24, height: 25}}
