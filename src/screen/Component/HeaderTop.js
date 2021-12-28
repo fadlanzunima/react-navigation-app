@@ -81,6 +81,7 @@ const styles = StyleSheet.create({
     height: 'auto',
     width: Dimensions.get('window').width,
     flex: 0.7,
+    fontFamily: 'FreeSans',
   },
   wrapperTitle: {
     position: 'absolute',
@@ -108,7 +109,7 @@ const styles = StyleSheet.create({
     color: '#3F414E',
     fontSize: 28,
     fontWeight: 'bold',
-    fontFamily: 'Helvetica-Neue',
+    fontFamily: 'FreeSans',
     marginBottom: 15,
   },
   headerBg: {

@@ -67,7 +67,7 @@ function Welcome() {
             onPress={() => {
               goToTopic();
             }}>
-            <Text> GET STARTED </Text>
+            <Text style={{fontSize: 14, color: '#3F414E'}}> GET STARTED </Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -96,22 +96,23 @@ const styles = StyleSheet.create({
     fontSize: 30,
     letterSpacing: 0.01,
     fontWeight: 'bold',
-    fontFamily: 'Helvetica-Neue',
+    fontFamily: 'FreeSans',
   },
   silent: {
     color: '#FFECCC',
     fontSize: 24,
     letterSpacing: 0.01,
     marginBottom: 30,
-    fontFamily: 'Helvetica-Neue',
+    fontFamily: 'FreeSans',
   },
   desc: {
     textAlign: 'center',
     marginHorizontal: 23,
     fontWeight: '300',
+    fontStyle: 'normal',
     fontSize: 16,
     color: '#EBEAEC',
-    fontFamily: 'Helvetica-Neue',
+    fontFamily: 'FreeSans',
   },
   meditation: {
     width: Dimensions.get('window').width,
@@ -124,8 +125,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: 374,
     height: 63,
-    fontSize: 14,
-    color: '#3F414E',
     backgroundColor: '#EBEAEC',
     borderRadius: 38,
   },

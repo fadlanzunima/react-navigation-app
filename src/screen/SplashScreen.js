@@ -56,7 +56,6 @@ function SplashScree() {
             fontSize: 30,
             color: '#3F414E',
             marginBottom: 10,
-            fontFamily: 'Helvetica-Neue',
           }}>
           We are what we do
         </Text>
@@ -66,7 +65,6 @@ function SplashScree() {
             fontSize: 16,
             color: '#A1A4B2',
             fontWeight: '300',
-            fontFamily: 'Helvetica-Neue',
           }}>
           Thousand of people are usign silent moon{'\n'} for smalls meditation
         </Text>
@@ -79,6 +77,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#ffffff',
+    fontFamily: 'FreeSans',
   },
   wrapperImage: {
     position: 'relative',

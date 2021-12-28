@@ -136,7 +136,6 @@ function SignIn() {
               flexDirection: 'row',
               justifyContent: 'center',
               alignItems: 'center',
-              fontFamily: 'Helvetica-Neue',
               letterSpacing: 0.25,
             }}>
             <Text>DOESN'T HAVE AN ACCOUNT? </Text>
@@ -144,7 +143,6 @@ function SignIn() {
             <Text
               style={{
                 color: '#8E97FD',
-                fontFamily: 'Helvetica-Neue',
               }}>
               SIGN UP
             </Text>
@@ -159,6 +157,7 @@ const styles = StyleSheet.create({
     position: 'relative',
     flex: 1,
     backgroundColor: '#ffffff',
+    fontFamily: 'FreeSans',
   },
   login: {
     justifyContent: 'center',

@@ -10,7 +10,6 @@ function Topics() {
           <Text style={styles.textBottom}>to Silent Moon?</Text>
           <Text
             style={{
-              fontFamily: 'HelveticaNeue',
               fontWeight: '300',
               fontSize: 20,
               lineHeight: 50,
@@ -41,15 +40,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'white',
+    fontFamily: 'FreeSans',
   },
   textTop: {
-    fontFamily: 'Helvetica-Neue',
     fontWeight: 'bold',
     fontSize: 28,
     color: '#3F414E',
   },
   textBottom: {
-    fontFamily: 'Helvetica-Neue',
     fontWeight: '300',
     fontSize: 25,
     color: '#3F414E',

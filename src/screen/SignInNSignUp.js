@@ -40,7 +40,6 @@ function SignInNSignUp() {
             fontSize: 30,
             color: '#3F414E',
             marginBottom: 10,
-            fontFamily: 'Helvetica-Neue',
           }}>
           We are what we do
         </Text>
@@ -50,7 +49,6 @@ function SignInNSignUp() {
             fontSize: 16,
             color: '#A1A4B2',
             fontWeight: '300',
-            fontFamily: 'Helvetica-Neue',
           }}>
           Thousand of people are usign silent moon{'\n'} for smalls meditation
         </Text>
@@ -68,7 +66,6 @@ function SignInNSignUp() {
             flexDirection: 'row',
             justifyContent: 'center',
             alignItems: 'center',
-            fontFamily: 'Helvetica-Neue',
             letterSpacing: 0.25,
           }}>
           <Text>ALREADY HAVE AN ACCOUNT? </Text>
@@ -76,7 +73,6 @@ function SignInNSignUp() {
           <Text
             style={{
               color: '#8E97FD',
-              fontFamily: 'Helvetica-Neue',
             }}>
             LOG IN
           </Text>
@@ -91,6 +87,7 @@ const styles = StyleSheet.create({
     position: 'relative',
     flex: 1,
     backgroundColor: '#ffffff',
+    fontFamily: 'FreeSans',
   },
   wrapperImage: {
     position: 'relative',
