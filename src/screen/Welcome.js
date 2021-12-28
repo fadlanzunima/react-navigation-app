@@ -26,6 +26,10 @@ function Welcome() {
     console.log('Done.');
   };
 
+  const goToTopic = () => {
+    navigation.dispatch(StackActions.replace('Topics'));
+  };
+
   return (
     <View style={styles.container}>
       {/* <TouchableOpacity onPress={() => removeValue()}>
@@ -58,7 +62,11 @@ function Welcome() {
           resizeMode="contain"
         />
         <View style={styles.wraperBtn}>
-          <TouchableOpacity style={styles.btnStarted}>
+          <TouchableOpacity
+            style={styles.btnStarted}
+            onPress={() => {
+              goToTopic();
+            }}>
             <Text> GET STARTED </Text>
           </TouchableOpacity>
         </View>
@@ -88,12 +96,14 @@ const styles = StyleSheet.create({
     fontSize: 30,
     letterSpacing: 0.01,
     fontWeight: 'bold',
+    fontFamily: 'Helvetica-Neue',
   },
   silent: {
     color: '#FFECCC',
     fontSize: 24,
     letterSpacing: 0.01,
     marginBottom: 30,
+    fontFamily: 'Helvetica-Neue',
   },
   desc: {
     textAlign: 'center',
@@ -101,6 +111,7 @@ const styles = StyleSheet.create({
     fontWeight: '300',
     fontSize: 16,
     color: '#EBEAEC',
+    fontFamily: 'Helvetica-Neue',
   },
   meditation: {
     width: Dimensions.get('window').width,
