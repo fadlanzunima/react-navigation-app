@@ -134,7 +134,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     width: Dimensions.get('window').width,
-    top: Dimensions.get('window').width * 1,
+    top: Dimensions.get('window').width * 0.95,
     zIndex: 1,
   },
 });
